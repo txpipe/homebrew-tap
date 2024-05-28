@@ -1,26 +1,30 @@
 class Dolos < Formula
   desc "A Cardano data-node built in Rust"
   homepage "https://github.com/txpipe/dolos"
-  version "0.8.0"
+  version "0.9.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/dolos/releases/download/v0.8.0/dolos-aarch64-apple-darwin.tar.xz"
-      sha256 "7153ee68f8071c42677ac09d6a54442307d21570f1f99fb188333cf58eba025e"
+      url "https://github.com/txpipe/dolos/releases/download/v0.9.0/dolos-aarch64-apple-darwin.tar.xz"
+      sha256 "afe48c7c490f30c5a86976371c2f2a55bea329addc85ebe2dc06041deb8034a4"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/dolos/releases/download/v0.8.0/dolos-x86_64-apple-darwin.tar.xz"
-      sha256 "f88e4a2bd0326dc10cb0041101fd89001db9051d77477f50a64cd690fc1b9744"
+      url "https://github.com/txpipe/dolos/releases/download/v0.9.0/dolos-x86_64-apple-darwin.tar.xz"
+      sha256 "668a1ad08d4e192bd322fc38e61674a5dc915f3524539b79a71f461279e3b3f7"
     end
   end
   if OS.linux?
+    if Hardware::CPU.arm?
+      url "https://github.com/txpipe/dolos/releases/download/v0.9.0/dolos-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "b4720798061c5005f36b0914100272ad570203ceb94218ac27637104465ee9cc"
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/dolos/releases/download/v0.8.0/dolos-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "cb0131fad75f4994dbf3b41bf038cb695bed94bb093b13db56aab54fb8627b02"
+      url "https://github.com/txpipe/dolos/releases/download/v0.9.0/dolos-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "b6cb77bbfefb514f485e81def0e58b6645c5e9f10284097208df2b11a976bc0e"
     end
   end
   license "Apache-2.0"
 
-  BINARY_ALIASES = {"aarch64-apple-darwin": {}, "x86_64-apple-darwin": {}, "x86_64-pc-windows-gnu": {}, "x86_64-unknown-linux-gnu": {}}
+  BINARY_ALIASES = {"aarch64-apple-darwin": {}, "aarch64-unknown-linux-gnu": {}, "x86_64-apple-darwin": {}, "x86_64-pc-windows-gnu": {}, "x86_64-unknown-linux-gnu": {}}
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -42,6 +46,9 @@ class Dolos < Formula
       bin.install "dolos"
     end
     if OS.mac? && Hardware::CPU.intel?
+      bin.install "dolos"
+    end
+    if OS.linux? && Hardware::CPU.arm?
       bin.install "dolos"
     end
     if OS.linux? && Hardware::CPU.intel?

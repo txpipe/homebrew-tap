@@ -1,30 +1,30 @@
 class Dolos < Formula
   desc "A Cardano data-node built in Rust"
   homepage "https://github.com/txpipe/dolos"
-  version "0.18.2"
+  version "0.19.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/dolos/releases/download/v0.18.2/dolos-aarch64-apple-darwin.tar.xz"
-      sha256 "cb966b155199944efd86b956def965f2e7b08fc8605bce26c0dd6ba1f5ff411d"
+      url "https://github.com/txpipe/dolos/releases/download/v0.19.0/dolos-aarch64-apple-darwin.tar.gz"
+      sha256 "725b836d5a5a7997a73767310935ade4740baf98aefa45a6a5eede3c2ea38445"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/dolos/releases/download/v0.18.2/dolos-x86_64-apple-darwin.tar.xz"
-      sha256 "3d24f62b4d6fb5bec4fe35d679f4306fdbb8ce70ba43b62cf7b7420f59fc7076"
+      url "https://github.com/txpipe/dolos/releases/download/v0.19.0/dolos-x86_64-apple-darwin.tar.gz"
+      sha256 "efb5f98f37982558f144c7f1c4ff7bd41aa1acd4d6641f58ef57bda880247560"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/dolos/releases/download/v0.18.2/dolos-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "e2fcaca886652c7496091fe24acc00328f6251356c340193c466823439d047de"
+      url "https://github.com/txpipe/dolos/releases/download/v0.19.0/dolos-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "5e35fba5d7037774bbf6e9e8f739ea068cedb50b03851a719b8bff11a66c3b7d"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/dolos/releases/download/v0.18.2/dolos-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "10341584e52c8c517f81cfc5f946b7cfe6715a629f3d823b635a98e8230d724a"
+      url "https://github.com/txpipe/dolos/releases/download/v0.19.0/dolos-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "220b8d1c9533b9e2f5d7bed453991d0944b2788808ec533becc4dd65181d1f21"
     end
   end
   license "Apache-2.0"
 
-  BINARY_ALIASES = {"aarch64-apple-darwin": {}, "aarch64-unknown-linux-gnu": {}, "x86_64-apple-darwin": {}, "x86_64-pc-windows-gnu": {}, "x86_64-unknown-linux-gnu": {}}
+  BINARY_ALIASES = {"aarch64-apple-darwin": {}, "aarch64-unknown-linux-gnu": {}, "x86_64-apple-darwin": {}, "x86_64-unknown-linux-gnu": {}}
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"

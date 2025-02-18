@@ -1,20 +1,20 @@
 class Telchar < Formula
   desc "A toolchain that improves the developer experience of integrating Plutus validators in off-chain processes"
   homepage "https://registry.telchar.txpipe.io"
-  version "0.1.0"
+  version "0.1.1"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/telchar/releases/download/v0.1.0/telchar-aarch64-apple-darwin.tar.xz"
-      sha256 "554152529734d3903cacdf039fd40ff19095d5d3d316f1848e99f4f6c57b6f13"
+      url "https://github.com/txpipe/telchar/releases/download/v0.1.1/telchar-aarch64-apple-darwin.tar.xz"
+      sha256 "c1aa1c1f2898ab9f81c87b6cf46c1f28a18b789cc14ab7fdfd583b4109520115"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/telchar/releases/download/v0.1.0/telchar-x86_64-apple-darwin.tar.xz"
-      sha256 "25a2ccc0d38ccecea835c7c5904a3a352ee556dec04f041979012f41abaaec86"
+      url "https://github.com/txpipe/telchar/releases/download/v0.1.1/telchar-x86_64-apple-darwin.tar.xz"
+      sha256 "de6c742885f454289c9fba97168b16681206796297ca830f057602fd73d1cce4"
     end
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/txpipe/telchar/releases/download/v0.1.0/telchar-x86_64-unknown-linux-gnu.tar.xz"
-    sha256 "ab619717e6bb7541e8a1333978d0a7c71f290951aaee114cf12a61a918429026"
+    url "https://github.com/txpipe/telchar/releases/download/v0.1.1/telchar-x86_64-unknown-linux-gnu.tar.xz"
+    sha256 "efa7855185c59f606679ee0187b33b5c49acc079a930af829eae3237b6ace1ea"
   end
 
   BINARY_ALIASES = {

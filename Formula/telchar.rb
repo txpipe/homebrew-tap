@@ -5,16 +5,16 @@ class Telchar < Formula
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/txpipe/telchar/releases/download/v0.1.2/telchar-aarch64-apple-darwin.tar.xz"
-      sha256 "5d4c2b8b6bb627d70e6dc0eeed7beeaa6814e738a8c0d034b922eed55aa33ad4"
+      sha256 "ce886446f2173407a6c310707e29d45ec86b85444dfafed71722a3edd76b6a04"
     end
     if Hardware::CPU.intel?
       url "https://github.com/txpipe/telchar/releases/download/v0.1.2/telchar-x86_64-apple-darwin.tar.xz"
-      sha256 "bdbfeb8cccede99cd65e4dbb684839d9cbabeec74d7e1492bf7248f6100d2c71"
+      sha256 "45b3e052c4ca19872eaae380d2baf980bf77ac1f6a452d629fcced841dcbc1e8"
     end
   end
   if OS.linux? && Hardware::CPU.intel?
     url "https://github.com/txpipe/telchar/releases/download/v0.1.2/telchar-x86_64-unknown-linux-gnu.tar.xz"
-    sha256 "42b738230d88a7d89633eac14c1dc878aa2d423058e058de82cba1d6bf083562"
+    sha256 "80e3005f9c4a3c864881537715d719c39563ce364401a6050c1b57af9cedd7d0"
   end
 
   BINARY_ALIASES = {

@@ -1,30 +1,35 @@
 class Cshell < Formula
   desc "A Cardano wallet CLI built for developers."
-  homepage "https://github.com/txpipe/cshell"
-  version "0.2.1"
+  homepage "https://docs.txpipe.io/cshell"
+  version "0.3.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/cshell/releases/download/v0.2.1/cshell-aarch64-apple-darwin.tar.gz"
-      sha256 "6e3ad7b645f5d6b98057b664a94224c929d27ed04b239fe4567db423311d275e"
+      url "https://github.com/txpipe/cshell/releases/download/v0.3.0/cshell-aarch64-apple-darwin.tar.gz"
+      sha256 "de52cb9fe75c294830dee9257123e85c036b5d672944b8d9c01a84bea4fd8812"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/cshell/releases/download/v0.2.1/cshell-x86_64-apple-darwin.tar.gz"
-      sha256 "1479bd21d5fc803027eca362cecf3430d3df8570edcb56a189628fc2131e81be"
+      url "https://github.com/txpipe/cshell/releases/download/v0.3.0/cshell-x86_64-apple-darwin.tar.gz"
+      sha256 "cb81ce2140a17ace1bed7304134b6a0c8e510b97259ff89bd5ac9acab333a9c6"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/cshell/releases/download/v0.2.1/cshell-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "189a0559d413c81399fc542a9da2cb614aa9f745bfef5bd157e8b457f45ee508"
+      url "https://github.com/txpipe/cshell/releases/download/v0.3.0/cshell-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "e95e7a407cd8e505164143c2dd74400f1615722f281c2402af4827cd200d0201"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/cshell/releases/download/v0.2.1/cshell-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "223f51d79e1e70f7422d0f0ad4ea0a280c2d6285e04d9c3757506db91f8341e7"
+      url "https://github.com/txpipe/cshell/releases/download/v0.3.0/cshell-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "b564602d3a72fd6e157e1baddb4095294d9be33df326c4259b9643a89ae9eee5"
     end
   end
   license "Apache-2.0"
 
-  BINARY_ALIASES = {"aarch64-apple-darwin": {}, "aarch64-unknown-linux-gnu": {}, "x86_64-apple-darwin": {}, "x86_64-unknown-linux-gnu": {}}
+  BINARY_ALIASES = {
+    "aarch64-apple-darwin":      {},
+    "aarch64-unknown-linux-gnu": {},
+    "x86_64-apple-darwin":       {},
+    "x86_64-unknown-linux-gnu":  {},
+  }.freeze
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -42,18 +47,10 @@ class Cshell < Formula
   end
 
   def install
-    if OS.mac? && Hardware::CPU.arm?
-      bin.install "cshell"
-    end
-    if OS.mac? && Hardware::CPU.intel?
-      bin.install "cshell"
-    end
-    if OS.linux? && Hardware::CPU.arm?
-      bin.install "cshell"
-    end
-    if OS.linux? && Hardware::CPU.intel?
-      bin.install "cshell"
-    end
+    bin.install "cshell" if OS.mac? && Hardware::CPU.arm?
+    bin.install "cshell" if OS.mac? && Hardware::CPU.intel?
+    bin.install "cshell" if OS.linux? && Hardware::CPU.arm?
+    bin.install "cshell" if OS.linux? && Hardware::CPU.intel?
 
     install_binary_aliases!
 

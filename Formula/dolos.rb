@@ -1,30 +1,35 @@
 class Dolos < Formula
   desc "A Cardano data-node built in Rust"
   homepage "https://github.com/txpipe/dolos"
-  version "0.20.0"
+  version "0.21.1"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/dolos/releases/download/v0.20.0/dolos-aarch64-apple-darwin.tar.gz"
-      sha256 "a6b5ac11fa69496acaa14f905c390b090d6a8d9b77cd70c12664fb8ae11e1504"
+      url "https://github.com/txpipe/dolos/releases/download/v0.21.1/dolos-aarch64-apple-darwin.tar.gz"
+      sha256 "c76604b95b3786feffa640a62fb58dab60ffc9771d9315e745ffe01f4fe89470"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/dolos/releases/download/v0.20.0/dolos-x86_64-apple-darwin.tar.gz"
-      sha256 "dd9ea19cfb95a31c198af21b6442f21afdef3bdc6fb0e954d3e1e579db67e2de"
+      url "https://github.com/txpipe/dolos/releases/download/v0.21.1/dolos-x86_64-apple-darwin.tar.gz"
+      sha256 "f6e4eac9d46971c44cb6be584f62b2027b6a0051f7dc92160c476244d0254ce6"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/dolos/releases/download/v0.20.0/dolos-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "fc5fe19ac9412a2c7b53c3ee3461f331afac0d7bba4309ec94d9958d3b263758"
+      url "https://github.com/txpipe/dolos/releases/download/v0.21.1/dolos-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "c258f9e3d7bbfaf4fada1beae6e88a171fc9b354c8b7eeaa7bf17620db812df0"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/dolos/releases/download/v0.20.0/dolos-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "b196fd2139ffeee59292c8c94c18c3a686b594e8278edf86e3f463679c798cdb"
+      url "https://github.com/txpipe/dolos/releases/download/v0.21.1/dolos-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "bdd254e55447dd1ad9c5a8318b3823594ba94ff779e9093ea869e5a9c2bfee2c"
     end
   end
   license "Apache-2.0"
 
-  BINARY_ALIASES = {"aarch64-apple-darwin": {}, "aarch64-unknown-linux-gnu": {}, "x86_64-apple-darwin": {}, "x86_64-unknown-linux-gnu": {}}
+  BINARY_ALIASES = {
+    "aarch64-apple-darwin":      {},
+    "aarch64-unknown-linux-gnu": {},
+    "x86_64-apple-darwin":       {},
+    "x86_64-unknown-linux-gnu":  {},
+  }.freeze
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -42,18 +47,10 @@ class Dolos < Formula
   end
 
   def install
-    if OS.mac? && Hardware::CPU.arm?
-      bin.install "dolos"
-    end
-    if OS.mac? && Hardware::CPU.intel?
-      bin.install "dolos"
-    end
-    if OS.linux? && Hardware::CPU.arm?
-      bin.install "dolos"
-    end
-    if OS.linux? && Hardware::CPU.intel?
-      bin.install "dolos"
-    end
+    bin.install "dolos" if OS.mac? && Hardware::CPU.arm?
+    bin.install "dolos" if OS.mac? && Hardware::CPU.intel?
+    bin.install "dolos" if OS.linux? && Hardware::CPU.arm?
+    bin.install "dolos" if OS.linux? && Hardware::CPU.intel?
 
     install_binary_aliases!
 

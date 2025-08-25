@@ -1,25 +1,25 @@
 class Dolos < Formula
   desc "A Cardano data-node built in Rust"
   homepage "https://github.com/txpipe/dolos"
-  version "0.30.0"
+  version "0.31.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/dolos/releases/download/v0.30.0/dolos-aarch64-apple-darwin.tar.gz"
-      sha256 "1a716c8a42748eedc8216c7d403d440d06cc76ddcd9639a1a8302a8483a9d6e2"
+      url "https://github.com/txpipe/dolos/releases/download/v0.31.0/dolos-aarch64-apple-darwin.tar.gz"
+      sha256 "459ce16735c5795343b603207f2fb570fdae48e2d6b6187ac3ce4d7bc2f4fe5e"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/dolos/releases/download/v0.30.0/dolos-x86_64-apple-darwin.tar.gz"
-      sha256 "cf2d8f76aead8f413281629f6472f30e1efe573cb3fd54d85f36487e197b4749"
+      url "https://github.com/txpipe/dolos/releases/download/v0.31.0/dolos-x86_64-apple-darwin.tar.gz"
+      sha256 "a80157bd1577933906aaa1badcf637bac86498a9725d2d31f67d24d0be694bf6"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/dolos/releases/download/v0.30.0/dolos-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "0fa5e11b091ff180ea73b49dd1266143e65c4ceae651244a36dfc27b469ae107"
+      url "https://github.com/txpipe/dolos/releases/download/v0.31.0/dolos-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "484f051f983e78d3abaf075efaa48826888bab6241b8912a8d73781b34bd7475"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/dolos/releases/download/v0.30.0/dolos-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "20bca49aea10e83f31dd5e8917d7d2a223e85dd47cd54d8cdc59a6e4b3bc905c"
+      url "https://github.com/txpipe/dolos/releases/download/v0.31.0/dolos-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "65deb2ab7b718627b070b655271d906fe0759fbc6dfc8079425a5592bba852ef"
     end
   end
   license "Apache-2.0"
@@ -28,6 +28,7 @@ class Dolos < Formula
     "aarch64-apple-darwin":      {},
     "aarch64-unknown-linux-gnu": {},
     "x86_64-apple-darwin":       {},
+    "x86_64-pc-windows-gnu":     {},
     "x86_64-unknown-linux-gnu":  {},
   }.freeze
 

@@ -1,25 +1,19 @@
 class Cshell < Formula
   desc "A Cardano wallet CLI built for developers."
   homepage "https://docs.txpipe.io/cshell"
-  version "0.12.0"
-  if OS.mac?
-    if Hardware::CPU.arm?
-      url "https://github.com/txpipe/cshell/releases/download/v0.12.0/cshell-aarch64-apple-darwin.tar.gz"
-      sha256 "c337024552b9f6c05b8187e46344ef1d9b03acf0ce4f8c61f31e435a2398ea1c"
-    end
-    if Hardware::CPU.intel?
-      url "https://github.com/txpipe/cshell/releases/download/v0.12.0/cshell-x86_64-apple-darwin.tar.gz"
-      sha256 "406aeabb34bb5acd7604040c7ba52d06aff06ce8b9d8ebe69662e6552fbb29c4"
-    end
+  version "0.13.0"
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/txpipe/cshell/releases/download/v0.13.0/cshell-aarch64-apple-darwin.tar.gz"
+    sha256 "37bed256fdb16485d2b6d8ea53ecfbc1f56b83aad183eafd18889061dbf034e7"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/cshell/releases/download/v0.12.0/cshell-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "8a2616bbdab3749f7dc24ca8a24498fc46100bb07207f9a8f11b4904fc83972b"
+      url "https://github.com/txpipe/cshell/releases/download/v0.13.0/cshell-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "d6cfb59d9b56aeeb54a644b34bd188d8ce00f5131f1ac8c5c8a240cc02f46320"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/cshell/releases/download/v0.12.0/cshell-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "fcea93ee9497e41cc8007ecb932c3d356151041a179bdcef2c3a6ab431b6f267"
+      url "https://github.com/txpipe/cshell/releases/download/v0.13.0/cshell-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "184c8872e4546c63ac6c06a1d48d2a750ab274a97a6e4a14b6612bbf56b087aa"
     end
   end
   license "Apache-2.0"
@@ -27,7 +21,7 @@ class Cshell < Formula
   BINARY_ALIASES = {
     "aarch64-apple-darwin":      {},
     "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin":       {},
+    "x86_64-pc-windows-gnu":     {},
     "x86_64-unknown-linux-gnu":  {},
   }.freeze
 
@@ -48,7 +42,6 @@ class Cshell < Formula
 
   def install
     bin.install "cshell" if OS.mac? && Hardware::CPU.arm?
-    bin.install "cshell" if OS.mac? && Hardware::CPU.intel?
     bin.install "cshell" if OS.linux? && Hardware::CPU.arm?
     bin.install "cshell" if OS.linux? && Hardware::CPU.intel?
 

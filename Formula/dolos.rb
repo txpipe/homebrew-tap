@@ -1,25 +1,19 @@
 class Dolos < Formula
   desc "A Cardano data-node built in Rust"
   homepage "https://github.com/txpipe/dolos"
-  version "0.32.0"
-  if OS.mac?
-    if Hardware::CPU.arm?
-      url "https://github.com/txpipe/dolos/releases/download/v0.32.0/dolos-aarch64-apple-darwin.tar.gz"
-      sha256 "61e33d5dcced8d461b81c50411f99e5f728a8c0c797b1f57cfa9d419e04108cc"
-    end
-    if Hardware::CPU.intel?
-      url "https://github.com/txpipe/dolos/releases/download/v0.32.0/dolos-x86_64-apple-darwin.tar.gz"
-      sha256 "ae98e6b388ddaaa542328b22e7c0aa397db49041368916fc025b880547d92896"
-    end
+  version "0.33.1"
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/txpipe/dolos/releases/download/v0.33.1/dolos-aarch64-apple-darwin.tar.gz"
+    sha256 "860e37937590466834d1700d344bd5dedc4972a2b6b716d4eba7022b50656f27"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/dolos/releases/download/v0.32.0/dolos-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "00228e4ae7440b8a5698e105119db95e36e2dc24b5904322a3cbf1eaac656c81"
+      url "https://github.com/txpipe/dolos/releases/download/v0.33.1/dolos-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "0895d4d0e435be8880de4c9a7b9327494b79902ba230f033607b2c69350964a0"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/dolos/releases/download/v0.32.0/dolos-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "f6e4801ac44d369d7f29fbf412dee16e3b44f9a9a899d57d06d5378ffc7737e8"
+      url "https://github.com/txpipe/dolos/releases/download/v0.33.1/dolos-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "2a1179e6efd06bca31ad1a11adc3c9860011099ae7aa6f0206e7bdfbc59b697b"
     end
   end
   license "Apache-2.0"
@@ -27,7 +21,6 @@ class Dolos < Formula
   BINARY_ALIASES = {
     "aarch64-apple-darwin":      {},
     "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin":       {},
     "x86_64-pc-windows-gnu":     {},
     "x86_64-unknown-linux-gnu":  {},
   }.freeze
@@ -49,7 +42,6 @@ class Dolos < Formula
 
   def install
     bin.install "dolos" if OS.mac? && Hardware::CPU.arm?
-    bin.install "dolos" if OS.mac? && Hardware::CPU.intel?
     bin.install "dolos" if OS.linux? && Hardware::CPU.arm?
     bin.install "dolos" if OS.linux? && Hardware::CPU.intel?
 

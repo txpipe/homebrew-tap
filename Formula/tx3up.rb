@@ -1,25 +1,19 @@
 class Tx3up < Formula
   desc "Installer for the tx3 toolchain"
   homepage "https://github.com/tx3-lang/up"
-  version "0.6.1"
-  if OS.mac?
-    if Hardware::CPU.arm?
-      url "https://github.com/tx3-lang/up/releases/download/v0.6.1/tx3up-aarch64-apple-darwin.tar.xz"
-      sha256 "83155a80c23e202b1c51090394252f6c327f4d458726935088aad6a61d5b4685"
-    end
-    if Hardware::CPU.intel?
-      url "https://github.com/tx3-lang/up/releases/download/v0.6.1/tx3up-x86_64-apple-darwin.tar.xz"
-      sha256 "6cb8845453d3581f15e3f4e3aa389a79b8243b9911821ec475ea1dc46564186b"
-    end
+  version "0.7.0"
+  if OS.mac? && Hardware::CPU.arm?
+      url "https://github.com/tx3-lang/up/releases/download/v0.7.0/tx3up-aarch64-apple-darwin.tar.xz"
+      sha256 "648b76a97e19dc06cc48d71ff6edc22104a31a851c1ecbb7a4ce4c02e6ad5d8e"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/tx3-lang/up/releases/download/v0.6.1/tx3up-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "cb4e1de64ef5fdc858c44b706dbde6f13a5b2a758e40e752827ba00e65936bd6"
+      url "https://github.com/tx3-lang/up/releases/download/v0.7.0/tx3up-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "7a3a8d473ba86ef14b1a6c1f2de15fecffe986baf30dd2bdbbba139cb6380eb6"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/tx3-lang/up/releases/download/v0.6.1/tx3up-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "ad0b00d42c89e6c29fef2c67adb8f4a152e3e301851194f6067dfc7948eb6cb1"
+      url "https://github.com/tx3-lang/up/releases/download/v0.7.0/tx3up-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "84bb2b43bbfca6e1661cb2f6ebbd27f8dad1e98eba0f8be93ec619ac9edeeb47"
     end
   end
   license "Apache-2.0"
@@ -27,7 +21,6 @@ class Tx3up < Formula
   BINARY_ALIASES = {
     "aarch64-apple-darwin":      {},
     "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin":       {},
     "x86_64-unknown-linux-gnu":  {},
   }.freeze
 
@@ -48,7 +41,6 @@ class Tx3up < Formula
 
   def install
     bin.install "tx3up" if OS.mac? && Hardware::CPU.arm?
-    bin.install "tx3up" if OS.mac? && Hardware::CPU.intel?
     bin.install "tx3up" if OS.linux? && Hardware::CPU.arm?
     bin.install "tx3up" if OS.linux? && Hardware::CPU.intel?
 

@@ -1,19 +1,19 @@
 class Dolos < Formula
   desc "A Cardano data-node built in Rust"
   homepage "https://github.com/txpipe/dolos"
-  version "1.0.2"
+  version "1.0.3"
   if OS.mac? && Hardware::CPU.arm?
-      url "https://github.com/txpipe/dolos/releases/download/v1.0.2/dolos-aarch64-apple-darwin.tar.gz"
-      sha256 "c1eae38fde347e0c17f543cd67f8335ebf2ec99df2e757baa39c2f13856791e8"
+    url "https://github.com/txpipe/dolos/releases/download/v1.0.3/dolos-aarch64-apple-darwin.tar.gz"
+    sha256 "fc631df08e48a7e14e71ef63f97d222c2957516a8b1f10a770204c63828d35ed"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/dolos/releases/download/v1.0.2/dolos-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "4dd0156ecec6c273237688720b8bfe6ac0ac0378f2970de5abbc19dad04500b8"
+      url "https://github.com/txpipe/dolos/releases/download/v1.0.3/dolos-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "b03898ab046a82cd81d75faa7d456af92270d734138ff8392e4851bda10a399b"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/dolos/releases/download/v1.0.2/dolos-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "159a5089d9fdf5dad39fd4443bc78fdd78e202158fa27e157b66de7f712d9606"
+      url "https://github.com/txpipe/dolos/releases/download/v1.0.3/dolos-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "7c75df709975d1644e0fbcfd71aa87dc0337838f9665cbc8ba121e3c32880379"
     end
   end
   license "Apache-2.0"

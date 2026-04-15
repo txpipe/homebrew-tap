@@ -1,19 +1,19 @@
 class Tx3up < Formula
   desc "Installer for the tx3 toolchain"
   homepage "https://github.com/tx3-lang/up"
-  version "0.7.0"
+  version "0.8.0"
   if OS.mac? && Hardware::CPU.arm?
-      url "https://github.com/tx3-lang/up/releases/download/v0.7.0/tx3up-aarch64-apple-darwin.tar.xz"
-      sha256 "648b76a97e19dc06cc48d71ff6edc22104a31a851c1ecbb7a4ce4c02e6ad5d8e"
+    url "https://github.com/tx3-lang/up/releases/download/v0.8.0/tx3up-aarch64-apple-darwin.tar.xz"
+    sha256 "48352b2ded8aefbfd0cbd02263d403726846bae982afbc78846c4ea22827122c"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/tx3-lang/up/releases/download/v0.7.0/tx3up-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "7a3a8d473ba86ef14b1a6c1f2de15fecffe986baf30dd2bdbbba139cb6380eb6"
+      url "https://github.com/tx3-lang/up/releases/download/v0.8.0/tx3up-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "91b1aab3635df294a5e23c7d4dce1196eaaf6824e5cd987e3e2b9bbaeff4b92f"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/tx3-lang/up/releases/download/v0.7.0/tx3up-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "84bb2b43bbfca6e1661cb2f6ebbd27f8dad1e98eba0f8be93ec619ac9edeeb47"
+      url "https://github.com/tx3-lang/up/releases/download/v0.8.0/tx3up-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "14b592cc65e7238b2f0b14f1a01afd83a5f5d73cd31d3aca26b7da0cbfbf0644"
     end
   end
   license "Apache-2.0"

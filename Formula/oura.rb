@@ -1,19 +1,19 @@
 class Oura < Formula
   desc "The tail of Cardano"
   homepage "https://github.com/txpipe/oura"
-  version "2.1.0"
+  version "2.2.0"
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/txpipe/oura/releases/download/v2.1.0/oura-aarch64-apple-darwin.tar.xz"
-    sha256 "344bbe1273825fb587f0536daf14bad2227577b6eaec945a2fcfe56f0f1a068c"
+    url "https://github.com/txpipe/oura/releases/download/v2.2.0/oura-aarch64-apple-darwin.tar.xz"
+    sha256 "414cca8fcd0a4c236bbd389b946271426178424b62fc645fb7e4b421caf29283"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/oura/releases/download/v2.1.0/oura-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "42f1725defb3ac661e21524237fc7c9038fb882f21c5cf0259e4affc6ceb0096"
+      url "https://github.com/txpipe/oura/releases/download/v2.2.0/oura-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "49443d389ad7b3e44204f4ab48fc84365e7b4f765dc7c86511bbd0dd68decdaa"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/oura/releases/download/v2.1.0/oura-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "ca917c1ff0e4952866224237190e05923ad497fb2d69249b7a4850aa91479478"
+      url "https://github.com/txpipe/oura/releases/download/v2.2.0/oura-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "06134eb1ea62bd999228d52787d6f512d2b485128144a4ed6290aad4d783b95f"
     end
   end
   license "Apache-2.0"

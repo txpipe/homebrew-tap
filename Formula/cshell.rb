@@ -1,19 +1,19 @@
 class Cshell < Formula
   desc "A Cardano wallet CLI built for developers."
   homepage "https://docs.txpipe.io/cshell"
-  version "0.14.0"
+  version "0.14.1"
   if OS.mac? && Hardware::CPU.arm?
-      url "https://github.com/txpipe/cshell/releases/download/v0.14.0/cshell-aarch64-apple-darwin.tar.gz"
-      sha256 "4c902c7a0a99915d8566e6881c432dbffa265b7d9f94d58262c304b3440971e2"
+    url "https://github.com/txpipe/cshell/releases/download/v0.14.1/cshell-aarch64-apple-darwin.tar.gz"
+    sha256 "1799eaa8eb932a1eafa2c1b2a65f16546e200a9b89eea58ee43596092bcfb62a"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/txpipe/cshell/releases/download/v0.14.0/cshell-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "ed86b6ef0d92b945863b966ff08b439894877a1a4ea074359fd60f2de9619d5a"
+      url "https://github.com/txpipe/cshell/releases/download/v0.14.1/cshell-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "afc9686255420ab4ecf4e7b52ccfd607872d16c6d33be7a492468d65cfb863ce"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/txpipe/cshell/releases/download/v0.14.0/cshell-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "13534d45d6f3faada0f2db94d6e1fae4dca0fa41311ab12aff35e6565352cf11"
+      url "https://github.com/txpipe/cshell/releases/download/v0.14.1/cshell-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "2fa58a84609f4b8477e31cf085d7774d48913699a1933795cbf57053ac8ce70a"
     end
   end
   license "Apache-2.0"
